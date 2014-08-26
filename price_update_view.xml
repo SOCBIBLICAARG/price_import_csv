@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+        <record id="view_price_update" model="ir.ui.view">
+              <field name="name">Actualizar Lista de Precios</field>
+              <field name="model">price.update</field>
+              <field name="type">form</field>
+              <field name="arch" type="xml">
+                <form string="Actualizar Lista de Precios" version="7.0">
+                    <group string="Actualizar Lista de Precios">
+                        <field name="familia" />
+                        <field name="categoria" />
+                        <field name="porcentual" />
+                    </group>
+                    <footer>
+                        <button name="price_update" string="Actualizar"  type="object" class="oe_highlight"/>
+			or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+		</form>
+	      </field>
+	</record>
+
+    <record id="action_price_update" model="ir.actions.act_window">
+        <field name="name">Actualizar Precios</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="src_model">product.product</field>
+        <field name="res_model">price.update</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+                name="Actualizar Precios"
+                id="menu_priceupdate"
+                parent="base.menu_product"
+                action="action_price_update" />
+
+</data>
+</openerp>
